@@ -28,7 +28,7 @@ Automatically fails if linting errors are found.
 
 Builds a Docker image from the Dockerfile.
 
-Tags the image as bwhaley7/node-app:latest.
+Tags the image as DOCKER_HUB_USERNAME/node-app:latest.
 
 Pushes the Docker image to the Docker Hub repository.
 
