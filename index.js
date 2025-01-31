@@ -6,6 +6,7 @@ app.get('/', (req, res) => {
     res.send('testing func');
 });
 
-app.listen(port, () => {
-    console.log('App running at http://localhost:${port}');
+const server = app.listen(port, () => {
+    console.log(`App running at http://localhost:${port}`);
+    server.close(); //close server after opening. Not practical, demonstration purposes only.
 });
