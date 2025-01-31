@@ -50,21 +50,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/node-app:latest
-
-  deploy-to-k8s:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Create kubeconfig directory
-        run: mkdir -p ~/.kube
-
-      - name: Set up kubectl
-        run: |
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
-
-
-      - name: Deploy to Kubernetes
-        run: kubectl apply -f deployment.yaml
