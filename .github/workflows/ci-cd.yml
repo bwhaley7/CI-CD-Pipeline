@@ -58,7 +58,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-
+      - name: Create kubeconfig directory
+        run: mkdir -p ~/.kube
+        
       - name: Set up kubectl
         run: |
           echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
